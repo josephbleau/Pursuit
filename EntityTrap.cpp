@@ -36,6 +36,7 @@ EntityTrap::EntityTrap( Game* game, int x, int y, int w, int h, TrapType type, b
 	if( behavior != NULL && mFriendly )
 	{
 		behavior->makeFriendly();
+		giveBehavior( behavior );
 	}
 }
 
