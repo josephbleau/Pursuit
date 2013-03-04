@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Entity.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityBehavior.cpp">
+      <Filter>Entities\Entity Behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="ReticuleEntity.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyEntity.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityBehaviorHandler.cpp">
+      <Filter>Entities\Entity Behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="EBFollow.cpp">
+      <Filter>Entities\Entity Behaviors\Behavior Definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="EBStats.cpp">
+      <Filter>Entities\Entity Behaviors\Behavior Definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="EBSpikey.cpp">
+      <Filter>Entities\Entity Behaviors\Behavior Definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="UIElement.cpp">
+      <Filter>User Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="UIHealthBar.cpp">
+      <Filter>User Interface\Interface Elements</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="ReticuleEntity.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityBehavior.h">
+      <Filter>Entities\Entity Behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyEntity.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityBehaviorHandler.h">
+      <Filter>Entities\Entity Behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="EBStats.h">
+      <Filter>Entities\Entity Behaviors\Behavior Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="EBFollow.h">
+      <Filter>Entities\Entity Behaviors\Behavior Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityProperties.h" />
+    <ClInclude Include="EBSpikey.h">
+      <Filter>Entities\Entity Behaviors\Behavior Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="GameHelper.h" />
+    <ClInclude Include="UIElement.h">
+      <Filter>User Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderable.h">
+      <Filter>Bases</Filter>
+    </ClInclude>
+    <ClInclude Include="Destroyable.h">
+      <Filter>Bases</Filter>
+    </ClInclude>
+    <ClInclude Include="UIHealthBar.h">
+      <Filter>User Interface\Interface Elements</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Entities">
+      <UniqueIdentifier>{71c59ea3-9fb0-47a9-bcdc-39caf15ce4c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Entity Behaviors">
+      <UniqueIdentifier>{32b1b35d-6cae-47b3-a02a-6260409c6564}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Entity Behaviors\Behavior Definitions">
+      <UniqueIdentifier>{fd8b7db5-1ea4-4750-8ec4-f8bce286a1e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="User Interface">
+      <UniqueIdentifier>{a982332e-90d4-4cf0-8df6-9e121f5d1ce4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bases">
+      <UniqueIdentifier>{69f60085-8dc9-4047-99f2-154580914283}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="User Interface\Interface Elements">
+      <UniqueIdentifier>{49be653f-d022-47b3-9a3c-f8effcd4d2dd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
