@@ -39,6 +39,9 @@
     <ClCompile Include="EBSticky.cpp">
       <Filter>Entities\Entity Behaviors\Behavior Definitions</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerEntity.cpp">
+      <Filter>Entities\Entity Types</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
@@ -82,14 +85,17 @@
     <ClInclude Include="ReticuleEntity.h">
       <Filter>Entities\Entity Types</Filter>
     </ClInclude>
-    <ClInclude Include="TrapType.h">
-      <Filter>Entities\Entity Types\Traps</Filter>
-    </ClInclude>
     <ClInclude Include="EntityTrap.h">
       <Filter>Entities\Entity Types\Traps</Filter>
     </ClInclude>
     <ClInclude Include="EBSticky.h">
       <Filter>Entities\Entity Behaviors\Behavior Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="TrapTypes.h">
+      <Filter>Entities\Entity Types\Traps</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerEntity.h">
+      <Filter>Entities\Entity Types</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

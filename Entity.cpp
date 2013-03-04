@@ -57,43 +57,8 @@ void Entity::render( SDL_Surface* screen ) const
 
 void Entity::executeMisc()
 {
-	/* Handle keyboard input if the 
-	   Entity is Player Controlled. */
-	if( hasProperty( EntityProperty::PLAYERCONTROLLED ) )
-	{
-		/* TODO: Generalize input, allow customization. 
-		   possibly via an EntityBehavior? */
-		Uint8* keyState = SDL_GetKeyState( NULL );
-		SDL_Rect newRect = mRect;
 
-		if( keyState['d'] )
-		{
-			newRect.x +=  mSpeedPerTick;
-		}
-		if( keyState['a'] ) 
-		{
-			newRect.x -= mSpeedPerTick;
-		}
-		if( keyState['w'] ) 
-		{
-			newRect.y -= mSpeedPerTick;
-		}
-		if( keyState['s'] ) 
-		{
-			newRect.y += mSpeedPerTick;
-		}
-
-		SDL_Rect worldRect = mParent->getWorldRect();
-		if( newRect.x > worldRect.x &&
-			newRect.y > worldRect.y &&
-			newRect.x + newRect.w < worldRect.x + worldRect.w &&
-			newRect.y + newRect.h < worldRect.y + worldRect.h )
-		{
-			mRect = newRect;
-		}
-	}
 }
-
 
 // **NOTE**: Despite returning a handle to the owner
 // of Entity, this method maintains appropriate constness
@@ -107,6 +72,11 @@ Game* Entity::getGame()  const
 const SDL_Rect& Entity::getRect() const
 {
 	return mRect;
+}
+
+int Entity::getSpeedPerTick() const
+{
+	return mSpeedPerTick;
 }
 
 bool Entity::hasProperty( EntityProperty property ) const

@@ -12,7 +12,7 @@ class Game;
 class EnemyEntity : public Entity 
 {
 private:
-	void updateMisc(); 	// Override
+	void executeMisc(); 	// Override
 
 public:
 	EnemyEntity( Game* parent, int x, int y, int w, int h );

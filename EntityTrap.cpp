@@ -2,10 +2,10 @@
 
 #include "EBSpikey.h"
 #include "EBSticky.h"
-#include "TrapType.h"
+#include "TrapTypes.h"
 
 
-EntityTrap::EntityTrap( Game* game, int x, int y, int w, int h, TrapType type, bool friendly = true ) :
+EntityTrap::EntityTrap( Game* game, int x, int y, int w, int h, TrapType type, bool friendly ) :
 	Entity( game, x, y, w, h ),
 	mType( type ),
 	mFriendly ( friendly )
@@ -17,7 +17,7 @@ EntityTrap::EntityTrap( Game* game, int x, int y, int w, int h, TrapType type, b
 	{
 		case TrapType::STICKY: 
 		{
-			setColor( 0, 255,0 );	// Green
+			setColor( 0, 255, 0 );	// Green
 			behavior = new EBSticky();
 			break;
 		}

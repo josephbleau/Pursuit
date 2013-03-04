@@ -20,6 +20,6 @@ EnemyEntity::EnemyEntity( Game* parent, int x, int y, int w, int h ) :
 }
 
 
-void EnemyEntity::updateMisc()
+void EnemyEntity::executeMisc()
 {
 }

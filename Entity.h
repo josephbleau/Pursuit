@@ -33,7 +33,7 @@ private:
 	std::vector<EntityProperty> mProperties; 
 
 protected:
-	virtual void executeMisc();
+	virtual void executeMisc() = 0;
 
 public:
 	Entity( Game* parent, int x, int y, 
@@ -43,26 +43,18 @@ public:
 	
 	void render( SDL_Surface* screen ) const;
 
-	Game* getGame() const;
-	const SDL_Rect& getRect() const;
+	inline virtual Game* getGame() const;
+	inline virtual const SDL_Rect& getRect() const;
+	inline virtual int getSpeedPerTick() const;
 
-	bool hasProperty( EntityProperty property ) const;
-	void giveProperty( EntityProperty property );
-	void removeProperty (EntityProperty property );
+	virtual bool hasProperty( EntityProperty property ) const;
+	virtual void giveProperty( EntityProperty property );
+	virtual void removeProperty (EntityProperty property );
 
-	void setColor( Uint8 r, Uint8 g, Uint8 b );
-	void setSpeedPerTick( int speed );
+	virtual void setColor( Uint8 r, Uint8 g, Uint8 b );
+	virtual void setSpeedPerTick( int speed );
 
-	void teleport( int x, int y );
-
-	template <typename T>
-	void triggerBehaviorEvent( std::string eventName,  std::vector<int> arguments )
-	{
-		if( hasBehavior<T>() )
-		{
-			getBehaviorByClass<T>()->triggerEvent( eventName, arguments );
-		}
-	}
+	virtual void teleport( int x, int y );
 
 	void update();
 };

@@ -7,6 +7,7 @@
 #include "EnemyEntity.h"
 #include "EntityProperties.h"
 #include "Destroyable.h"
+#include "PlayerEntity.h"
 #include "ReticuleEntity.h"
 #include "UIElement.h"
 #include "UIHealthBar.h"
@@ -125,6 +126,14 @@ const std::vector<std::shared_ptr<Entity>> Game::getEntities()
 	return mEntities;
 }
 
+void Game::giveEntity( Entity* entity )
+{
+	if( entity == NULL )
+		return;
+
+	mIncomingEntities.push_back( std::shared_ptr<Entity>( entity ) );
+}
+
 bool Game::init(int w, int h) 
 {
 	mScreenRect.x = 0;
@@ -166,14 +175,13 @@ void Game::initBasicEntities()
 
 	/* TODO: Eventually push these into a level loading mechanism. */
 	/* Setup the player entity. */
-	mPlayerEntity = std::shared_ptr<Entity>( new Entity( this, 20, 20, 10, 10 ) );
+	mPlayerEntity = std::shared_ptr<Entity>( new PlayerEntity( this, 20, 20, 10, 10 ) );
 	mPlayerEntity->giveProperty( EntityProperty::PLAYERCONTROLLED );
 	mPlayerEntity->giveProperty( EntityProperty::COLLIDABLE );
 	mPlayerEntity->giveBehavior( new EBStats() );
 	mPlayerEntity->setSpeedPerTick( 3 );
 	mEntities.push_back( mPlayerEntity );
 	
-
 	/* Setup a test enemy. */
 	mEntities.push_back( std::shared_ptr<EnemyEntity>( new EnemyEntity( this, 100, 100, 15, 15 ) ) );
 	mEntities.push_back( std::shared_ptr<EnemyEntity>( new EnemyEntity( this, 400, 0, 15, 15 ) ) );
@@ -183,12 +191,25 @@ void Game::initBasicEntities()
 
 void Game::updateEntities()
 {
-		for( auto entity = mEntities.begin();
-			 entity != mEntities.end();
-			 ++entity )
-		{
-			(*entity)->update();
-		}
+	/* Because inserting entities in the middle of a frame causes
+	   iterator invalidation issues (when the vector grows) we reroute
+	   all inserts to mIncomingEntities, and then just add the new
+	   entities at the beginning of the next frame. */
+	for( auto entity = mIncomingEntities.begin();
+		 entity != mIncomingEntities.end();
+		 ++entity )
+	{
+		mEntities.push_back((*entity));
+	}
+
+	mIncomingEntities.clear();
+
+	for( auto entity = mEntities.begin();
+			entity != mEntities.end();
+			++entity )
+	{
+		(*entity)->update();
+	}
 }
 
 void Game::updateUIElements()
