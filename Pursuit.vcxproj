@@ -77,10 +77,12 @@
     <ClCompile Include="EBFollow.cpp" />
     <ClCompile Include="EBSpikey.cpp" />
     <ClCompile Include="EBStats.cpp" />
+    <ClCompile Include="EBSticky.cpp" />
     <ClCompile Include="EnemyEntity.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityBehavior.cpp" />
     <ClCompile Include="EntityBehaviorHandler.cpp" />
+    <ClCompile Include="EntityTrap.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ReticuleEntity.cpp" />
@@ -92,15 +94,18 @@
     <ClInclude Include="EBFollow.h" />
     <ClInclude Include="EBSpikey.h" />
     <ClInclude Include="EBStats.h" />
+    <ClInclude Include="EBSticky.h" />
     <ClInclude Include="EnemyEntity.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityBehavior.h" />
     <ClInclude Include="EntityBehaviorHandler.h" />
     <ClInclude Include="EntityProperties.h" />
+    <ClInclude Include="EntityTrap.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameHelper.h" />
     <ClInclude Include="Renderable.h" />
     <ClInclude Include="ReticuleEntity.h" />
+    <ClInclude Include="TrapType.h" />
     <ClInclude Include="UIElement.h" />
     <ClInclude Include="UIHealthBar.h" />
   </ItemGroup>

@@ -7,11 +7,12 @@
    simple flag it should be recreated as a behavior. */
 
 enum EntityProperty {
-	COLLIDABLE,			// Cannot be passed through.
-	INVINCIBLE,			// Cannot be damaged
+	COLLIDABLE,			// Entity cannot be passed through. (TODO: Fully implement.)
+	INVINCIBLE,			// Entity cannot be damaged 
 	PLAYERCONTROLLED,	// Entity is controlled by player input
-	HIDDEN,				// Player isn't drawn
-	DESTROY_ON_DEATH	// Entity is destroyed when it runs out of health (if it has EBStats behavior) 
+	HIDDEN,				// Entity isn't drawn
+	DESTROY_ON_DEATH,	// Entity is destroyed when it runs out of health (if it has EBStats behavior) 
+	SLOWED_HALF			// Entity moves at half its normal speed. (We're going to implement this by forcing them to skip every other update. )
 };
 
 #endif

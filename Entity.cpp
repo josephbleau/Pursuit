@@ -17,7 +17,8 @@ Entity::Entity( Game* parent, int x, int y,
 	mRect(),
 	mColor(),
 	mParent(parent),
-	mProperties()
+	mProperties(),
+	mSkipFrame( false )
 {
 	mRect.x = x;
 	mRect.y = y;
@@ -151,6 +152,14 @@ void Entity::teleport(int x, int y)
 
 void Entity::update() 
 {
-	executeBehaviors( this );
-	executeMisc();	// Overriden by derived Entities to provide custom innate behavior outside EntityBehavior's
+	if( hasProperty( EntityProperty::SLOWED_HALF )  )
+	{
+		mSkipFrame = !mSkipFrame;
+	}
+
+	if( !mSkipFrame )
+	{
+		executeBehaviors( this );
+		executeMisc();	// Overriden by derived Entities to provide custom innate behavior outside EntityBehavior's
+	}
 }

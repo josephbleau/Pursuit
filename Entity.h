@@ -23,6 +23,7 @@ private:
 	SDL_Color mColor;
 
 	int mSpeedPerTick;
+	bool mSkipFrame;		// True if we're not going to update this frame.
 
 	Game* mParent;		// Is not owned by Entity. 
 

@@ -3,7 +3,8 @@
 
 #include <typeinfo>
 
-EntityBehavior::EntityBehavior() 
+EntityBehavior::EntityBehavior() :
+	mFriendly( false )
 {
 
 }
@@ -16,6 +17,21 @@ EntityBehavior::~EntityBehavior()
 std::string EntityBehavior::getParentType() const 
 {
 	return typeid( Entity ).name();
+}
+
+inline bool EntityBehavior::isFriendly() 
+{
+	return mFriendly;
+}
+
+inline void EntityBehavior::makeHarmful()
+{
+	mFriendly = false;
+}
+
+inline void EntityBehavior::makeFriendly()
+{
+	mFriendly = true;
 }
 
 void EntityBehavior::runAs( Entity* owner )

@@ -3,17 +3,8 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Entity.cpp">
-      <Filter>Entities</Filter>
-    </ClCompile>
     <ClCompile Include="EntityBehavior.cpp">
       <Filter>Entities\Entity Behaviors</Filter>
-    </ClCompile>
-    <ClCompile Include="ReticuleEntity.cpp">
-      <Filter>Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyEntity.cpp">
-      <Filter>Entities</Filter>
     </ClCompile>
     <ClCompile Include="EntityBehaviorHandler.cpp">
       <Filter>Entities\Entity Behaviors</Filter>
@@ -33,20 +24,26 @@
     <ClCompile Include="UIHealthBar.cpp">
       <Filter>User Interface\Interface Elements</Filter>
     </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Entities\Entity Types</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyEntity.cpp">
+      <Filter>Entities\Entity Types</Filter>
+    </ClCompile>
+    <ClCompile Include="ReticuleEntity.cpp">
+      <Filter>Entities\Entity Types</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityTrap.cpp">
+      <Filter>Entities\Entity Types\Traps</Filter>
+    </ClCompile>
+    <ClCompile Include="EBSticky.cpp">
+      <Filter>Entities\Entity Behaviors\Behavior Definitions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
-    <ClInclude Include="ReticuleEntity.h">
-      <Filter>Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Entities</Filter>
-    </ClInclude>
     <ClInclude Include="EntityBehavior.h">
       <Filter>Entities\Entity Behaviors</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyEntity.h">
-      <Filter>Entities</Filter>
     </ClInclude>
     <ClInclude Include="EntityBehaviorHandler.h">
       <Filter>Entities\Entity Behaviors</Filter>
@@ -57,7 +54,6 @@
     <ClInclude Include="EBFollow.h">
       <Filter>Entities\Entity Behaviors\Behavior Definitions</Filter>
     </ClInclude>
-    <ClInclude Include="EntityProperties.h" />
     <ClInclude Include="EBSpikey.h">
       <Filter>Entities\Entity Behaviors\Behavior Definitions</Filter>
     </ClInclude>
@@ -73,6 +69,27 @@
     </ClInclude>
     <ClInclude Include="UIHealthBar.h">
       <Filter>User Interface\Interface Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityProperties.h">
+      <Filter>Entities\Entity Behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Entities\Entity Types</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyEntity.h">
+      <Filter>Entities\Entity Types</Filter>
+    </ClInclude>
+    <ClInclude Include="ReticuleEntity.h">
+      <Filter>Entities\Entity Types</Filter>
+    </ClInclude>
+    <ClInclude Include="TrapType.h">
+      <Filter>Entities\Entity Types\Traps</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityTrap.h">
+      <Filter>Entities\Entity Types\Traps</Filter>
+    </ClInclude>
+    <ClInclude Include="EBSticky.h">
+      <Filter>Entities\Entity Behaviors\Behavior Definitions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +110,12 @@
     </Filter>
     <Filter Include="User Interface\Interface Elements">
       <UniqueIdentifier>{49be653f-d022-47b3-9a3c-f8effcd4d2dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Entity Types">
+      <UniqueIdentifier>{b8ebcf40-83ab-4f27-8cf0-b96e33d76deb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Entity Types\Traps">
+      <UniqueIdentifier>{5419e148-7dee-43fe-80eb-43b1d221f641}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

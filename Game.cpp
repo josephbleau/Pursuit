@@ -78,7 +78,7 @@ void Game::execute()
 	Uint32 lastTick = SDL_GetTicks();
 	while( 1 )
 	{
-		/* Entire game-loop is fixed-step at 60Hz */
+		/* Entire game-loop is fixed-step at 60Hz*/
 		if( SDL_GetTicks() - lastTick > 17 )
 		{
 			while( SDL_PollEvent( &event ) )
