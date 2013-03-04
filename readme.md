@@ -10,3 +10,6 @@ Concept:
 Controls:
   W,A,S,D: Movement
   Mouse click: (radius around player) 'tosses' the tap a short distance 
+
+
+PS: LOL, yeah I failed at this goal. :|
