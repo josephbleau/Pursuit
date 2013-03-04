@@ -2,7 +2,11 @@
 [Tt]humbs.db
 *.DS_Store
 
+*.dll
+
 #Visual Studio files
+*.vcxproj.filters
+*.vcxproj
 *.[Oo]bj
 *.user
 *.aps
