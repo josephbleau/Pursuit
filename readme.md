@@ -10,16 +10,3 @@ Concept:
 Controls:
   W,A,S,D: Movement
   Mouse click: (radius around player) 'tosses' the tap a short distance 
-
-Implementation stepping stones:
-  These are the specific and immediate implementation needs to fufill the most basic version of the game.
-
-  1) Draw square.
-  2) Allow input (keybrd) to move this square (square is representing the player.)
-    2.a) Bounds checking against the walls of the level (player cannot leave the level.)
-  4) Draw trap tossing cursor (mouse controlled)
-  5) Draw another square, different color (enemy.)
-  6) Give the enemy a simple 'follow player' logic.
-  7) Determine if enemy and player overlap
-  8) On collisions, damage player
-    8.a) If we haven't player needs to be storing a health attribute
