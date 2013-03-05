@@ -25,7 +25,7 @@ private:
 	int mSpeedPerTick;
 	bool mSkipFrame;		// True if we're not going to update this frame.
 
-	Game* mParent;		// Is not owned by Entity. 
+	Game* mParent;			// Is not owned by Entity. 
 
 	/* Properties are simple boolean flags which
 	   further describe our entity, see EntityProperties.h
@@ -39,7 +39,7 @@ public:
 	Entity( Game* parent, int x, int y, 
 		    int w, int h );
 	
-	~Entity();
+	virtual ~Entity() = 0 {};
 	
 	void render( SDL_Surface* screen ) const;
 

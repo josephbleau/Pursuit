@@ -10,6 +10,7 @@ private:
 
 public:
 	UIHealthBar( int x, int y, int w, int h );
+	~UIHealthBar();
 
 	void update( Game* game ); // override
 	void render( SDL_Surface* screen ) const; //override

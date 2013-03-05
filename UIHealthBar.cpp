@@ -11,6 +11,10 @@ UIHealthBar::UIHealthBar( int x, int y, int w, int h ) :
 	
 }
 
+UIHealthBar::~UIHealthBar()
+{
+}
+
 void UIHealthBar::update( Game* game )
 {
 	/* The health bar is only concerned with our players

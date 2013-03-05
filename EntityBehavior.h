@@ -16,14 +16,14 @@ public:
 
 public:
 	EntityBehavior();
-	virtual ~EntityBehavior() = 0;
+	virtual ~EntityBehavior() = 0 {};
 	
 	virtual std::string getMyType() const = 0;
 	virtual std::string getParentType() const;
 
-	virtual bool isFriendly();
-	virtual void makeHarmful();
-	virtual void makeFriendly();
+	bool isFriendly();
+	void makeHarmful();
+	void makeFriendly();
 
 	void runAs( Entity* owner );
 	virtual void run( Entity* owner ) = 0;

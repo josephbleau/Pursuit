@@ -14,7 +14,7 @@ private:
 public:
 	EntityTrap( Game* game, int x, int y, int w, int h, TrapType type, bool friendly = true );
 
-	void executeMisc(); // Override
+	void executeMisc(); // override
 };
 
 #endif

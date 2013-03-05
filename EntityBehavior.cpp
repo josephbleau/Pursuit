@@ -9,27 +9,22 @@ EntityBehavior::EntityBehavior() :
 
 }
 
-EntityBehavior::~EntityBehavior()
-{
-
-}
-
 std::string EntityBehavior::getParentType() const 
 {
 	return typeid( Entity ).name();
 }
 
-inline bool EntityBehavior::isFriendly() 
+bool EntityBehavior::isFriendly() 
 {
 	return mFriendly;
 }
 
-inline void EntityBehavior::makeHarmful()
+void EntityBehavior::makeHarmful()
 {
 	mFriendly = false;
 }
 
-inline void EntityBehavior::makeFriendly()
+void EntityBehavior::makeFriendly()
 {
 	mFriendly = true;
 }

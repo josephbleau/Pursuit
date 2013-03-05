@@ -14,9 +14,10 @@ protected:
 
 public:
 	UIElement( int x, int y, int w, int h );
+	virtual ~UIElement() = 0 {};
 
-	virtual void update( Game* game );
-	virtual void render( SDL_Surface* screen ) const;
+	virtual void update( Game* game ) = 0;
+	virtual void render( SDL_Surface* screen ) const = 0;
 };
 
 #endif

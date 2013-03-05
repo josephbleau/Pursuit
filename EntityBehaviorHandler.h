@@ -16,7 +16,7 @@ private:
 
 public:
 	EntityBehaviorHandler();
-	virtual ~EntityBehaviorHandler() = 0;
+	virtual ~EntityBehaviorHandler();
 
 	void executeBehaviors( Entity* owner);
 	void giveBehavior( EntityBehavior* behavior );

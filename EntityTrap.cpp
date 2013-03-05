@@ -1,9 +1,9 @@
 #include "EntityTrap.h"
 
+#include "EntityBehavior.h"
 #include "EBSpikey.h"
 #include "EBSticky.h"
 #include "TrapTypes.h"
-
 
 EntityTrap::EntityTrap( Game* game, int x, int y, int w, int h, TrapType type, bool friendly ) :
 	Entity( game, x, y, w, h ),

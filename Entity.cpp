@@ -33,11 +33,6 @@ Entity::Entity( Game* parent, int x, int y,
 	mSpeedPerTick = 1; // 60 px/s (at 60Hz)
 }
 
-Entity::~Entity()
-{
-}
-
-
 void Entity::render( SDL_Surface* screen ) const
 {
 	if( !hasProperty( EntityProperty::HIDDEN ) )
