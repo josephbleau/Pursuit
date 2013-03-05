@@ -11,7 +11,7 @@
 namespace GameHelper
 {
 
-inline bool rectsCollide( const SDL_Rect& r1, const SDL_Rect& r2 ) 
+__forceinline bool rectsCollide( const SDL_Rect& r1, const SDL_Rect& r2 ) 
 {
 	bool outside =  (r1.x + r1.w < r2.x) ||	// Test if we're outside to the west
 	                (r1.x > r2.x + r2.w) ||	// Test if we're outside to the east

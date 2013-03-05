@@ -9,8 +9,7 @@ public:
 	ReticuleEntity( Game* parent, int x, int y, 
 		            int w, int h );
 
-	// Override
-	void executeMisc();
+	void executeMisc(); 	// Override
 };
 
 #endif

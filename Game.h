@@ -26,12 +26,12 @@ public:
 	Game();
 	~Game();
 
-	void drawEntities();
-	void drawUIElements();
+	void drawEntities() const;
+	void drawUIElements() const;
 	void execute();
-	const SDL_Rect& getWorldRect();
+	const SDL_Rect& getWorldRect() const;
 	std::shared_ptr<Entity> getPlayerEntity();
-	const SDL_Rect& getPlayerRect();
+	const SDL_Rect& getPlayerRect() const;
 	void giveEntity( Entity* entity );
 	const std::vector<std::shared_ptr<Entity>> getEntities();
 	bool init( int w = 512, int h = 512 );

@@ -29,7 +29,7 @@ Game::~Game()
 	}
 }
 
-void Game::drawEntities()
+void Game::drawEntities() const
 {
 		for( auto entity = mEntities.begin();
 			 entity != mEntities.end();
@@ -39,7 +39,7 @@ void Game::drawEntities()
 		}
 }
 
-void Game::drawUIElements() 
+void Game::drawUIElements() const
 {
 		for( auto element = mUIElements.begin();
 			 element != mUIElements.end();
@@ -106,7 +106,7 @@ void Game::execute()
 	}
 }
 
-const SDL_Rect& Game::getWorldRect()
+const SDL_Rect& Game::getWorldRect() const
 {
 	return mScreenRect;
 }
@@ -116,7 +116,7 @@ std::shared_ptr<Entity> Game::getPlayerEntity()
 	return mPlayerEntity;
 }
 
-const SDL_Rect& Game::getPlayerRect()
+const SDL_Rect& Game::getPlayerRect() const
 {
 	return mPlayerEntity->getRect();
 }

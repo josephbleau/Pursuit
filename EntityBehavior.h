@@ -21,9 +21,9 @@ public:
 	virtual std::string getMyType() const = 0;
 	virtual std::string getParentType() const;
 
-	virtual inline bool isFriendly();
-	virtual inline void makeHarmful();
-	virtual inline void makeFriendly();
+	virtual bool isFriendly();
+	virtual void makeHarmful();
+	virtual void makeFriendly();
 
 	void runAs( Entity* owner );
 	virtual void run( Entity* owner ) = 0;

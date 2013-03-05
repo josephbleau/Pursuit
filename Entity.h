@@ -43,9 +43,9 @@ public:
 	
 	void render( SDL_Surface* screen ) const;
 
-	inline virtual Game* getGame() const;
-	inline virtual const SDL_Rect& getRect() const;
-	inline virtual int getSpeedPerTick() const;
+	virtual Game* getGame() const;
+	virtual const SDL_Rect& getRect() const;
+	virtual int getSpeedPerTick() const;
 
 	virtual bool hasProperty( EntityProperty property ) const;
 	virtual void giveProperty( EntityProperty property );
