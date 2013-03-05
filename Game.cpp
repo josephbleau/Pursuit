@@ -183,10 +183,10 @@ void Game::initBasicEntities()
 	mEntities.push_back( mPlayerEntity );
 	
 	/* Setup a test enemy. */
-	mEntities.push_back( std::shared_ptr<EnemyEntity>( new EnemyEntity( this, 100, 100, 15, 15 ) ) );
-	mEntities.push_back( std::shared_ptr<EnemyEntity>( new EnemyEntity( this, 400, 0, 15, 15 ) ) );
-	mEntities.push_back( std::shared_ptr<EnemyEntity>( new EnemyEntity( this, 0, 400, 15, 15 ) ) );
-	mEntities.push_back( std::shared_ptr<EnemyEntity>( new EnemyEntity( this, 400, 400, 15, 15 ) ) );
+	mEntities.push_back( std::make_shared<EnemyEntity>( EnemyEntity( this, 100, 100, 15, 15 ) ) );
+	mEntities.push_back( std::make_shared<EnemyEntity>( EnemyEntity( this, 400, 0, 15, 15 ) ) );
+	mEntities.push_back( std::make_shared<EnemyEntity>( EnemyEntity( this, 0, 400, 15, 15 ) ) );
+	mEntities.push_back( std::make_shared<EnemyEntity>( EnemyEntity( this, 400, 400, 15, 15 ) ) );
 }
 
 void Game::updateEntities()

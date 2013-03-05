@@ -38,7 +38,29 @@ void EntityBehaviorHandler::giveBehavior( EntityBehavior* behavior )
 	std::string parentType = behavior->getParentType( );
 	if( behavior->getParentType() == typeid( Entity ).name() )
 	{
-		mBehaviors.push_back( std::unique_ptr<EntityBehavior>( behavior ) );
+		mBehaviors.push_back( std::shared_ptr<EntityBehavior>( behavior ) );
+	}
+	else
+	{
+		for( auto parent = mBehaviors.begin();
+			 parent != mBehaviors.end();
+			 ++parent )
+		{
+			if( (*parent)->getMyType() == behavior->getParentType() )
+			{
+				(*parent)->giveBehavior( behavior );
+			}
+		}
+	}
+}
+
+
+void EntityBehaviorHandler::giveBehavior( std::shared_ptr<EntityBehavior> behavior ) 
+{
+	std::string parentType = behavior->getParentType( );
+	if( behavior->getParentType() == typeid( Entity ).name() )
+	{
+		mBehaviors.push_back( behavior  );
 	}
 	else
 	{

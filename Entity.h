@@ -43,18 +43,18 @@ public:
 	
 	void render( SDL_Surface* screen ) const;
 
-	virtual Game* getGame() const;
-	virtual const SDL_Rect& getRect() const;
-	virtual int getSpeedPerTick() const;
+	Game* getGame() const;
+	const SDL_Rect& getRect() const;
+	int getSpeedPerTick() const;
 
-	virtual bool hasProperty( EntityProperty property ) const;
-	virtual void giveProperty( EntityProperty property );
-	virtual void removeProperty (EntityProperty property );
+	bool hasProperty( EntityProperty property ) const;
+	void giveProperty( EntityProperty property );
+	void removeProperty (EntityProperty property );
 
-	virtual void setColor( Uint8 r, Uint8 g, Uint8 b );
-	virtual void setSpeedPerTick( int speed );
+	void setColor( Uint8 r, Uint8 g, Uint8 b );
+	void setSpeedPerTick( int speed );
 
-	virtual void teleport( int x, int y );
+	void teleport( int x, int y );
 
 	void update();
 };

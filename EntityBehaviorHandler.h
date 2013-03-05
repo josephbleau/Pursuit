@@ -12,7 +12,7 @@ class EntityBehavior;
 class EntityBehaviorHandler
 {
 private:
-	std::vector<std::unique_ptr<EntityBehavior>> mBehaviors;
+	std::vector<std::shared_ptr<EntityBehavior>> mBehaviors;
 
 public:
 	EntityBehaviorHandler();
@@ -20,7 +20,14 @@ public:
 
 	void executeBehaviors( Entity* owner);
 	void giveBehavior( EntityBehavior* behavior );
+	void giveBehavior( std::shared_ptr<EntityBehavior> behavior );
 	
+	template <typename T>
+	void giveBehavior()
+	{
+		mBehaviors.push_back( std::make_shared<T>( T() ) );
+	}
+
 	template <typename T>
 	T* getBehaviorByClass()
 	{
