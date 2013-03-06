@@ -5,6 +5,7 @@
 SpriteAnimation::SpriteAnimation( std::string filename, int framewidth, int frameheight ) :
 	mTicksPerFrame( 0 ),
 	mLastTick( 0 ),
+	mCurFrame( 0 ),
 	mNumRows( 0 ),
 	mNumCols( 0 ),
 	mFrameWidth( framewidth ),
@@ -38,6 +39,8 @@ void SpriteAnimation::update()
 {
 }
 
-void SpriteAnimation::render( SDL_Surface* screen )
+void SpriteAnimation::renderAt( SDL_Surface* screen, int x, int y ) const
 {
+	SDL_Rect renderRect = { x, y, mFrameWidth, mFrameHeight };
+	SDL_BlitSurface( screen, const_cast<SDL_Rect*>(&mClipRect), mResource.get(), &renderRect ); 
 }

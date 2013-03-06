@@ -1,5 +1,5 @@
-#ifndef ANIMATION_H
-#define ANIMATION_H
+#ifndef SPRITEANIMATION_H
+#define SPRITEANIMATION_H
 
 /* SpriteAnimation is a simple 2D sprite animation class that clips a 
    picture according to its constructor and displays a new frame every 
@@ -14,7 +14,7 @@
 
 #include "Renderable.h"
 
-class SpriteAnimation : public Renderable
+class SpriteAnimation
 {
 private:
 	/* NOTE: mTicksPerFrame's ticks are fundamentally different than "game-ticks", 
@@ -24,6 +24,7 @@ private:
 
 	SDL_Rect mClipRect;
 
+	int mCurFrame;
 	int mNumRows;
 	int mNumCols;
 	int mFrameWidth;
@@ -38,7 +39,8 @@ public:
 	/* Note: SpriteAnimation() can throw an ImageLoadException */
 	SpriteAnimation( std::string filename, int framewidth, int frameheight );
 
-	void render( SDL_Surface* screen );
+	void update();
+	void renderAt( SDL_Surface* screen, int x, int y );
 };
 
 #endif
