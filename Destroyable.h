@@ -10,8 +10,8 @@ public:
 	Destroyable() : mDestroy( false ) {}
 	virtual ~Destroyable() = 0 {};
 	
-	virtual bool destroy() { if(!mDestroy) mDestroy = true; return mDestroy; };
-	virtual bool toDestroy() { return mDestroy; }
+	bool destroy() { if(!mDestroy) mDestroy = true; return mDestroy; };
+	bool toDestroy() { return mDestroy; }
 };
 
 #endif

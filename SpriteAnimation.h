@@ -36,7 +36,7 @@ private:
 	std::shared_ptr<SDL_Surface> mResource;	// The sprite
 
 public:
-	/* Note: SpriteAnimation() can throw an ImageLoadException */
+	/* Note: ctor can throw an ImageLoadException */
 	SpriteAnimation( std::string filename, int framewidth, int frameheight );
 
 	void update();
