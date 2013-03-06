@@ -4,16 +4,13 @@
 #include <map>
 #include <string>
 
-#include "Entity.h"
+#include "AnimatedEntity.h"
 
 class EntityBehavior;
 class Game;
 
-class EnemyEntity : public Entity 
+class EnemyEntity : public AnimatedEntity 
 {
-private:
-	void executeMisc(); 	// Override
-
 public:
 	EnemyEntity( Game* parent, int x, int y, int w, int h );
 };

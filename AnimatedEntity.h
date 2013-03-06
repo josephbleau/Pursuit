@@ -9,14 +9,19 @@ class AnimatedEntity : public Entity
 {
 private:
 	std::shared_ptr<SpriteAnimation> mAnimation;
-	
-	void updateMisc(); //override
+	bool mAnimationEnabled;
+
+	void executeMisc(); //override, final
 
 public:
-	AnimatedEntity( Game* game, int x, int y, int w, int h, 
-		            std::shared_ptr<SpriteAnimation> animation );
-	
-	void render( SDL_Surface* screen) const;
+	AnimatedEntity( Game* game, int x, int y, int w, int h );
+	virtual ~AnimatedEntity() = 0 {};
+
+	void disableAnimation();
+	void enableAnimation();
+	bool isAnimationEnabled() const;
+
+	virtual void render( SDL_Surface* screen) const;
 };
 
 #endif

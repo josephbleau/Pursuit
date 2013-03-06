@@ -40,7 +40,7 @@ public:
 	SpriteAnimation( std::string filename, int framewidth, int frameheight );
 
 	void update();
-	void renderAt( SDL_Surface* screen, int x, int y );
+	void renderAt( SDL_Surface* screen, int x, int y ) const;
 };
 
 #endif
