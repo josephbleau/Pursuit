@@ -3,7 +3,9 @@
 
 #include <vector>
 #include <memory>
+
 #include "SDL/SDL.h"
+#include "SDL/SDL_image.h"
 
 class Entity;
 class Destroyable;

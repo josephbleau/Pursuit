@@ -49,7 +49,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>D:\Dev\lib</AdditionalLibraryDirectories>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>SDL.lib; SDLmain.lib; kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL_image.lib; SDL.lib; SDLmain.lib; kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>msvcrt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
@@ -68,7 +68,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>D:\Dev\lib</AdditionalLibraryDirectories>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>SDL.lib; SDLmain.lib; kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL_image.lib; SDL.lib; SDLmain.lib; kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
@@ -87,10 +87,13 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlayerEntity.cpp" />
     <ClCompile Include="ReticuleEntity.cpp" />
+    <ClCompile Include="SpriteAnimation.cpp" />
     <ClCompile Include="UIElement.cpp" />
     <ClCompile Include="UIHealthBar.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ImageLoadException.h" />
+    <ClInclude Include="SpriteAnimation.h" />
     <ClInclude Include="Destroyable.h" />
     <ClInclude Include="EBFollow.h" />
     <ClInclude Include="EBSpikey.h" />
@@ -110,6 +113,7 @@
     <ClInclude Include="TrapTypes.h" />
     <ClInclude Include="UIElement.h" />
     <ClInclude Include="UIHealthBar.h" />
+    <ClInclude Include="UITrapSelector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -27,6 +27,9 @@ Game::~Game()
 	{
 		SDL_FreeSurface( mScreen );
 	}
+
+	IMG_Quit();
+	SDL_Quit();
 }
 
 void Game::drawEntities() const
@@ -148,6 +151,12 @@ bool Game::init(int w, int h)
 		return false;
 	}
 
+	if( IMG_Init( IMG_INIT_PNG ) & IMG_INIT_PNG != IMG_INIT_PNG)	
+	{
+		std::cerr << "There was an error initializing IMG_Load";
+		return false;
+	}
+
 	SDL_Surface* screen = SDL_SetVideoMode( w, h, 32, SDL_SWSURFACE );
 	if( screen == NULL )
 	{
@@ -155,6 +164,7 @@ bool Game::init(int w, int h)
 			      << SDL_GetError() << std::endl;
 		return false;
 	}
+
 
 	this->mScreen = screen;
 
