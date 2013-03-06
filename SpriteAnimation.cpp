@@ -64,6 +64,7 @@ void SpriteAnimation::update()
 		if( curTick - mLastTick >= mTicksPerFrame )
 		{
 			mLastTick = SDL_GetTicks();
+			++mCurFrame;
 			if( mCurFrame == numFrames ) 
 			{
 				if( mIsLooping )
@@ -75,12 +76,9 @@ void SpriteAnimation::update()
 					mIsPaused = true;
 				}
 			}
-			else
-			{
-				++mCurFrame;
-				mClipRect.x = (mCurFrame % mNumCols) * mFrameWidth;
-				mClipRect.y = (mCurFrame / mNumCols)  * mFrameHeight;
-			}			
+
+			mClipRect.x = (mCurFrame % mNumCols) * mFrameWidth;
+			mClipRect.y = (mCurFrame / mNumCols)  * mFrameHeight;					
 		}
 	}
 }
