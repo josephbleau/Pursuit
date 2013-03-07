@@ -43,6 +43,7 @@ public:
 	
 	void render( SDL_Surface* screen ) const;
 
+	SDL_Color getColor() const;
 	Game* getGame() const;
 	const SDL_Rect& getRect() const;
 	int getSpeedPerTick() const;

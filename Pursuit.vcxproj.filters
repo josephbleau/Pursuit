@@ -52,6 +52,12 @@
     <ClCompile Include="AnimatedEntity.cpp">
       <Filter>Engine\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Engine\Resources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EntityTrap.h">
@@ -123,6 +129,15 @@
     <ClInclude Include="AnimatedEntity.h">
       <Filter>Engine\Entities</Filter>
     </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Engine\Bases</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Engine\Resources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Engine">
@@ -160,6 +175,9 @@
     </Filter>
     <Filter Include="Engine\Exceptions">
       <UniqueIdentifier>{35f93153-d22b-4881-aa00-bb0b0e6c522e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Resources">
+      <UniqueIdentifier>{289e6b52-7bb9-44c2-b60a-47adcc922c7b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

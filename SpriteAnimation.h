@@ -12,9 +12,11 @@
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
 
-#include "Renderable.h"
+#include "Resource.h"
 
-class SpriteAnimation
+class ResourceManager;
+
+class SpriteAnimation : public Resource
 {
 private:
 	/* NOTE: mTicksPerFrame's ticks are fundamentally different than "game-ticks", 

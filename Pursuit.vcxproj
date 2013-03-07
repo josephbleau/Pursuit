@@ -48,7 +48,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>D:\Dev\lib</AdditionalLibraryDirectories>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <AdditionalDependencies>SDL_image.lib; SDL.lib; SDLmain.lib; kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>msvcrt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -87,14 +87,18 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlayerEntity.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="ReticuleEntity.cpp" />
     <ClCompile Include="SpriteAnimation.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="UIElement.cpp" />
     <ClCompile Include="UIHealthBar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimatedEntity.h" />
     <ClInclude Include="ImageLoadException.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="SpriteAnimation.h" />
     <ClInclude Include="Destroyable.h" />
     <ClInclude Include="EBFollow.h" />
@@ -112,6 +116,7 @@
     <ClInclude Include="PlayerEntity.h" />
     <ClInclude Include="Renderable.h" />
     <ClInclude Include="ReticuleEntity.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="TrapTypes.h" />
     <ClInclude Include="UIElement.h" />
     <ClInclude Include="UIHealthBar.h" />

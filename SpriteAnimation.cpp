@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "ImageLoadException.h"
+#include "ResourceManager.h"
 
 SpriteAnimation::SpriteAnimation( std::string filename, int framewidth, int frameheight ) :
 	mTicksPerFrame( 0 ),
@@ -13,7 +14,8 @@ SpriteAnimation::SpriteAnimation( std::string filename, int framewidth, int fram
 	mFrameWidth( framewidth ),
 	mFrameHeight( frameheight ),
 	mIsLooping( false ),
-	mIsPaused( false )
+	mIsPaused( false ),
+	mResource ( NULL )
 {
 	/* Maybe I should throw an exception here? Our object is pretty 
 	   useless if this is the case anyway. */
@@ -29,13 +31,10 @@ SpriteAnimation::SpriteAnimation( std::string filename, int framewidth, int fram
 
 	SDL_Surface* image = NULL;
 	image = IMG_Load( filename.c_str() );
-
-	if( image == NULL ) 
+	if( image == NULL )
 	{
 		throw ImageLoadException( filename );
 	}
-
-	mResource = std::shared_ptr<SDL_Surface>( image );
 
 	const int imageWidth = mResource->w;
 	const int imageHeight = mResource->h;
@@ -65,6 +64,7 @@ void SpriteAnimation::update()
 		{
 			mLastTick = SDL_GetTicks();
 			++mCurFrame;
+
 			if( mCurFrame == numFrames ) 
 			{
 				if( mIsLooping )
@@ -74,6 +74,7 @@ void SpriteAnimation::update()
 				else 
 				{
 					mIsPaused = true;
+					--mCurFrame;	// Leave the frame as the last one.
 				}
 			}
 

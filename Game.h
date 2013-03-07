@@ -9,7 +9,9 @@
 
 class Entity;
 class Destroyable;
+class ResourceManager;
 class UIElement;
+
 
 class Game
 {
@@ -21,6 +23,7 @@ private:
 	std::vector<std::shared_ptr<Entity>> mIncomingEntities;	// Entities we're adding to the scene, but not until the frame is over.
 	std::shared_ptr<Entity> mPlayerEntity;
 	std::vector<std::shared_ptr<UIElement>> mUIElements;
+	std::shared_ptr<ResourceManager> mResourceManager;
 
 	void destroyDestroyables(); // Called once per frame to cleanup destroyed entities.
 

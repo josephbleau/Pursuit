@@ -22,6 +22,8 @@ public:
 	bool isAnimationEnabled() const;
 
 	virtual void render( SDL_Surface* screen) const;
+
+	void setAnimation( std::shared_ptr<SpriteAnimation> animation );
 };
 
 #endif

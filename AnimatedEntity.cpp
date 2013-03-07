@@ -1,12 +1,14 @@
 #include <string>
 
 #include "AnimatedEntity.h"
+#include "EntityProperties.h"
 #include "Game.h"
 #include "SpriteAnimation.h"
 
 AnimatedEntity::AnimatedEntity( Game* game, int x, int y, int w, int h ) :
 	Entity( game, x, y, w, h ),
-	mAnimationEnabled( true )
+	mAnimationEnabled( false ),
+	mAnimation( NULL )
 {
 
 }
@@ -36,13 +38,30 @@ void AnimatedEntity::executeMisc()
 
 void AnimatedEntity::render( SDL_Surface* screen ) const
 {
-	if( mAnimationEnabled )
+	if( !hasProperty( EntityProperty::HIDDEN ) )
 	{
-		mAnimation->renderAt( screen, getRect().x, getRect().y );
-	}
-	else
-	{
-		// Still draw something even if the animation failed to load.
-	}
+		if( mAnimationEnabled )
+		{
+			mAnimation->renderAt( screen, getRect().x, getRect().y );
+		}
+		else {
+	
+			SDL_Rect rect = getRect();
+			SDL_Color color = getColor();
 
+			SDL_FillRect( screen, &rect, 
+							SDL_MapRGB( 
+								screen->format, 
+								color.r,
+								color.g,
+								color.b
+							) 
+			); 	
+		}
+	}
+}
+
+void AnimatedEntity::setAnimation( std::shared_ptr<SpriteAnimation> animation )
+{
+	mAnimation = animation;
 }

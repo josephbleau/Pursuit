@@ -55,6 +55,11 @@ void Entity::executeMisc()
 
 }
 
+SDL_Color Entity::getColor() const
+{
+	return mColor;
+}
+
 // **NOTE**: Despite returning a handle to the owner
 // of Entity, this method maintains appropriate constness
 // both bitwise and logically, as Game does not expose or
