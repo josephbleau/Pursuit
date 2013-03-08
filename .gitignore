@@ -3,10 +3,11 @@
 *.DS_Store
 
 *.dll
+*.png
 
 #Visual Studio files
 *.vcxproj.filters
-*.vcxproj
+*.vcx*
 *.[Oo]bj
 *.user
 *.aps
@@ -33,6 +34,7 @@ obj/
 [Bb]in
 [Dd]ebug*/
 [Rr]elease*/
+[Rr]esources*/
 Ankh.NoLoad
 
 #MonoDevelop
