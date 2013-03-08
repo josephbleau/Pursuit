@@ -9,8 +9,8 @@ AnimationPlayer::AnimationPlayer( std::shared_ptr<ResourceManager> resourceMgr )
 	mResourceMgr( resourceMgr ),
 	mCurFrame( 0 ),
 	mLastTick( 0 ),
-	mTicksPerFrame( 0 ),
-	mIsLooping( false ),
+	mTicksPerFrame( 2000 ),
+	mIsLooping( true ),
 	mIsPaused( true ),
 	mIsEnabled( false )
 {
@@ -21,7 +21,7 @@ AnimationPlayer::AnimationPlayer( std::shared_ptr<ResourceManager> resourceMgr,
 	mResourceMgr( resourceMgr ),
 	mCurFrame( 0 ),
 	mLastTick( 0 ),
-	mTicksPerFrame( 0 ),
+	mTicksPerFrame( 2000 ),
 	mIsLooping( false ),
 	mIsPaused( false ),
 	mIsEnabled( true )
@@ -51,25 +51,30 @@ void AnimationPlayer::renderAt( SDL_Surface* screen, int x, int y ) const
 	{
 		SDL_Rect frameRect = mAnimation->getFrameRect( mCurFrame );
 		SDL_Rect renderRect = { x, y, frameRect.w, frameRect.h };
+
+		std::cout << "frame rect: " << frameRect.x << ", " << frameRect.y << ", " << frameRect.w << ", " << frameRect.h << std::endl;
+
 		const std::shared_ptr<SDL_Surface>& texture = mAnimation->getTexture(); 
 
 		SDL_BlitSurface( texture.get(), &frameRect, screen, &renderRect );
 	}
 }
 
-void AnimationPlayer::update()
+void AnimationPlayer::animUpdate()
 {
 	if( mIsPaused == false && mIsEnabled == true )
 	{
-		const Uint8 curTick = SDL_GetTicks();
+		const Uint32 curTick = SDL_GetTicks();
 		const int numFrames = mAnimation->getNumFrames();
+
+		std::cout << mCurFrame << std::endl;
 
 		if( curTick - mLastTick >= mTicksPerFrame )
 		{
 			mLastTick = SDL_GetTicks();
 			++mCurFrame;
 
-			if( mCurFrame == numFrames ) 
+			if( mCurFrame >= numFrames ) 
 			{
 				if( mIsLooping )
 				{
@@ -92,6 +97,7 @@ bool AnimationPlayer::setAnimation( std::string animationName )
 	if( mAnimation != NULL )
 	{
 		std::cout << "?";
+		mIsPaused = false;
 		mIsEnabled = true;
 		return true;
 	}

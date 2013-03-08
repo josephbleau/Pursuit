@@ -6,13 +6,11 @@
 #include "ResourceManager.h"
 
 SpriteAnimation::SpriteAnimation( std::string filename, int framewidth, int frameheight ) :
-	mTicksPerFrame( 0 ),
-	mLastTick( 0 ),
 	mNumRows( 0 ),
 	mNumCols( 0 ),
 	mFrameWidth( framewidth ),
 	mFrameHeight( frameheight ),
-	mIsLooping( false ),
+	mIsLooping( true ),
 	mResource ( NULL )
 {
 	/* Maybe I should throw an exception here? Our object is pretty 
@@ -40,18 +38,13 @@ SpriteAnimation::SpriteAnimation( std::string filename, int framewidth, int fram
 	const int imageHeight = mResource->h;
 	mNumRows = imageWidth / framewidth;
 	mNumCols = imageHeight / frameheight;
-
-	mClipRect.x = 0;
-	mClipRect.y = 0;
-	mClipRect.w = framewidth;
-	mClipRect.h = frameheight;
 }
 
 SDL_Rect SpriteAnimation::getFrameRect( int frame ) const
 {
 	SDL_Rect frameRect = { 
-		(frame % std::max( mNumCols, 1 )) * mFrameWidth,
 		(frame / std::max( mNumCols, 1 ))  * mFrameHeight,
+		(frame % std::max( mNumCols, 1 )) * mFrameWidth,
 		frameRect.w = mFrameWidth,
 		frameRect.h = mFrameHeight
 	};
@@ -62,11 +55,6 @@ SDL_Rect SpriteAnimation::getFrameRect( int frame ) const
 int SpriteAnimation::getNumFrames() const
 {
 	return mNumRows * mNumCols;  
-}
-
-Uint32 SpriteAnimation::getTicksPerFrame() const
-{
-	return mTicksPerFrame;
 }
 
 const std::shared_ptr<SDL_Surface>& SpriteAnimation::getTexture() const

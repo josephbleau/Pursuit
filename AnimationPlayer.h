@@ -32,7 +32,7 @@ public:
 	void enableAnimation();
 	bool isAnimationEnabled() const;
 
-	void update();
+	void animUpdate();
 	void renderAt( SDL_Surface* screen, int x, int y ) const;
 
 	bool setAnimation( std::string animationName );

@@ -19,11 +19,6 @@ class SpriteAnimation
 private:
 	/* NOTE: mTicksPerFrame's ticks are fundamentally different than "game-ticks", 
 	         ticks here refers to actual 'real time' as reported by SDL_GetTicks(); */	      
-	Uint32 mTicksPerFrame;		
-	Uint32 mLastTick;
-
-	SDL_Rect mClipRect;
-
 	int mNumRows;
 	int mNumCols;
 	int mFrameWidth;

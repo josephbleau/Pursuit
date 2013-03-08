@@ -15,7 +15,7 @@ AnimatedEntity::AnimatedEntity( Game* game, int x, int y, int w, int h ) :
 
 void AnimatedEntity::executeMisc()
 {
-
+	animUpdate();
 }
 
 void AnimatedEntity::render( SDL_Surface* screen ) const
