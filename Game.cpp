@@ -8,12 +8,14 @@
 #include "EntityProperties.h"
 #include "Destroyable.h"
 #include "PlayerEntity.h"
+#include "ResourceManager.h"
 #include "ReticuleEntity.h"
 #include "UIElement.h"
 #include "UIHealthBar.h"
 
 Game::Game() :
 	mScreen( NULL ),
+	mResourceManager( new ResourceManager() ),
 	mEntities(),
 	mUIElements(),
 	mPlayerEntity( NULL )
@@ -127,6 +129,11 @@ const SDL_Rect& Game::getPlayerRect() const
 const std::vector<std::shared_ptr<Entity>> Game::getEntities()
 {
 	return mEntities;
+}
+
+std::shared_ptr<ResourceManager> Game::getResourceManager()
+{
+	return mResourceManager;
 }
 
 void Game::giveEntity( Entity* entity )

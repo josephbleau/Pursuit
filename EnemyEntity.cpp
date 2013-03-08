@@ -20,4 +20,7 @@ EnemyEntity::EnemyEntity( Game* parent, int x, int y, int w, int h ) :
 	giveBehavior( new EBSpikey(3) );					// Spikes do 3 damage on contact.
 	giveProperty( EntityProperty::COLLIDABLE );
 	giveProperty( EntityProperty::DESTROY_ON_DEATH );	
+
+	setAnimation("enemy");
+	//enableAnimation();
 }

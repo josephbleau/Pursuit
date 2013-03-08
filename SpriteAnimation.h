@@ -12,11 +12,9 @@
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
 
-#include "Resource.h"
-
 class ResourceManager;
 
-class SpriteAnimation : public Resource
+class SpriteAnimation
 {
 private:
 	/* NOTE: mTicksPerFrame's ticks are fundamentally different than "game-ticks", 
@@ -26,14 +24,12 @@ private:
 
 	SDL_Rect mClipRect;
 
-	int mCurFrame;
 	int mNumRows;
 	int mNumCols;
 	int mFrameWidth;
 	int mFrameHeight;
 
 	bool mIsLooping;	
-	bool mIsPaused;
 
 	std::shared_ptr<SDL_Surface> mResource;	// The sprite
 
@@ -41,8 +37,15 @@ public:
 	/* Note: ctor can throw an ImageLoadException */
 	SpriteAnimation( std::string filename, int framewidth, int frameheight );
 
-	void update();
-	void renderAt( SDL_Surface* screen, int x, int y ) const;
+	SDL_Rect getFrameRect( int frame ) const;
+	int getNumFrames() const;
+	const std::shared_ptr<SDL_Surface>& getTexture() const;
+
+	bool isLooping() const;
+	Uint32 getTicksPerFrame() const;
+
+	
+	
 };
 
 #endif

@@ -75,6 +75,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AnimatedEntity.cpp" />
+    <ClCompile Include="AnimationPlayer.cpp" />
     <ClCompile Include="EBFollow.cpp" />
     <ClCompile Include="EBSpikey.cpp" />
     <ClCompile Include="EBStats.cpp" />
@@ -90,14 +91,13 @@
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="ReticuleEntity.cpp" />
     <ClCompile Include="SpriteAnimation.cpp" />
-    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="UIElement.cpp" />
     <ClCompile Include="UIHealthBar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimatedEntity.h" />
+    <ClInclude Include="AnimationPlayer.h" />
     <ClInclude Include="ImageLoadException.h" />
-    <ClInclude Include="Resource.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="SpriteAnimation.h" />
     <ClInclude Include="Destroyable.h" />
@@ -116,7 +116,6 @@
     <ClInclude Include="PlayerEntity.h" />
     <ClInclude Include="Renderable.h" />
     <ClInclude Include="ReticuleEntity.h" />
-    <ClInclude Include="Texture.h" />
     <ClInclude Include="TrapTypes.h" />
     <ClInclude Include="UIElement.h" />
     <ClInclude Include="UIHealthBar.h" />

@@ -4,20 +4,21 @@
 
 #include "SDL/SDL_image.h"
 
-#include "ImageLoadException.h"
-#include "Texture.h"
-
 ResourceManager::ResourceManager() :
-	mResources()
+	mSpriteAnimations()
 {
+	/* Load from resource manifest. */
+
+	/* NOTE THIS IS JUST TEMPORARY FOR TESTING */
+	mSpriteAnimations["enemy"] = std::shared_ptr<SpriteAnimation>( 
+		new SpriteAnimation("enemy_anim.png", 32, 32)
+	);
 }
 
-std::shared_ptr<Resource> ResourceManager::getResource( int handle )
+std::shared_ptr<SpriteAnimation> ResourceManager::getSpriteAnimation( std::string name )
 {
-	return NULL;
-}
+	if( mSpriteAnimations.find( name ) == mSpriteAnimations.end() )
+		return NULL;
 
-int ResourceManager::loadTexture( std::string filename )
-{
-	return 0;
+	return mSpriteAnimations[name];
 }

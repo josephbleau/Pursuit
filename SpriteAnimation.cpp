@@ -8,13 +8,11 @@
 SpriteAnimation::SpriteAnimation( std::string filename, int framewidth, int frameheight ) :
 	mTicksPerFrame( 0 ),
 	mLastTick( 0 ),
-	mCurFrame( 0 ),
 	mNumRows( 0 ),
 	mNumCols( 0 ),
 	mFrameWidth( framewidth ),
 	mFrameHeight( frameheight ),
 	mIsLooping( false ),
-	mIsPaused( false ),
 	mResource ( NULL )
 {
 	/* Maybe I should throw an exception here? Our object is pretty 
@@ -36,6 +34,8 @@ SpriteAnimation::SpriteAnimation( std::string filename, int framewidth, int fram
 		throw ImageLoadException( filename );
 	}
 
+	mResource = std::shared_ptr<SDL_Surface>( image );
+
 	const int imageWidth = mResource->w;
 	const int imageHeight = mResource->h;
 	mNumRows = imageWidth / framewidth;
@@ -47,39 +47,35 @@ SpriteAnimation::SpriteAnimation( std::string filename, int framewidth, int fram
 	mClipRect.h = frameheight;
 }
 
-void SpriteAnimation::renderAt( SDL_Surface* screen, int x, int y ) const
+SDL_Rect SpriteAnimation::getFrameRect( int frame ) const
 {
-	SDL_Rect renderRect = { x, y, mFrameWidth, mFrameHeight };
-	SDL_BlitSurface( screen, const_cast<SDL_Rect*>(&mClipRect), mResource.get(), &renderRect ); 
+	SDL_Rect frameRect = { 
+		(frame % std::max( mNumCols, 1 )) * mFrameWidth,
+		(frame / std::max( mNumCols, 1 ))  * mFrameHeight,
+		frameRect.w = mFrameWidth,
+		frameRect.h = mFrameHeight
+	};
+
+	return frameRect;
 }
 
-void SpriteAnimation::update()
+int SpriteAnimation::getNumFrames() const
 {
-	if( mIsPaused == false )
-	{
-		const Uint8 curTick = SDL_GetTicks();
-		const int numFrames = mNumRows * mNumCols;  
+	return mNumRows * mNumCols;  
+}
 
-		if( curTick - mLastTick >= mTicksPerFrame )
-		{
-			mLastTick = SDL_GetTicks();
-			++mCurFrame;
+Uint32 SpriteAnimation::getTicksPerFrame() const
+{
+	return mTicksPerFrame;
+}
 
-			if( mCurFrame == numFrames ) 
-			{
-				if( mIsLooping )
-				{
-					mCurFrame = 0;
-				}
-				else 
-				{
-					mIsPaused = true;
-					--mCurFrame;	// Leave the frame as the last one.
-				}
-			}
+const std::shared_ptr<SDL_Surface>& SpriteAnimation::getTexture() const
+{
+	return mResource;
+}
 
-			mClipRect.x = (mCurFrame % mNumCols) * mFrameWidth;
-			mClipRect.y = (mCurFrame / mNumCols)  * mFrameHeight;					
-		}
-	}
+
+bool SpriteAnimation::isLooping() const
+{
+	return mIsLooping;
 }

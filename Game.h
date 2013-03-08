@@ -39,6 +39,7 @@ public:
 	const SDL_Rect& getPlayerRect() const;
 	void giveEntity( Entity* entity );
 	const std::vector<std::shared_ptr<Entity>> getEntities();
+	std::shared_ptr<ResourceManager> getResourceManager();
 	bool init( int w = 512, int h = 512 );
 	void initBasicEntities();
 	void updateEntities();

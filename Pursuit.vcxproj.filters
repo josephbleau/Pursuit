@@ -46,16 +46,16 @@
     <ClCompile Include="EBSticky.cpp">
       <Filter>Game\Entities\Entity Behaviors</Filter>
     </ClCompile>
-    <ClCompile Include="SpriteAnimation.cpp">
-      <Filter>Engine\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="AnimatedEntity.cpp">
       <Filter>Engine\Entities</Filter>
     </ClCompile>
     <ClCompile Include="ResourceManager.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.cpp">
+    <ClCompile Include="AnimationPlayer.cpp">
+      <Filter>Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteAnimation.cpp">
       <Filter>Engine\Resources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -123,19 +123,16 @@
     <ClInclude Include="ImageLoadException.h">
       <Filter>Engine\Exceptions</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteAnimation.h">
-      <Filter>Engine\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="AnimatedEntity.h">
       <Filter>Engine\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Engine\Bases</Filter>
     </ClInclude>
     <ClInclude Include="ResourceManager.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h">
+    <ClInclude Include="AnimationPlayer.h">
+      <Filter>Engine\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteAnimation.h">
       <Filter>Engine\Resources</Filter>
     </ClInclude>
   </ItemGroup>
