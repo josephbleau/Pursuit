@@ -22,6 +22,7 @@ private:
 	SDL_Rect mRect;
 	SDL_Color mColor;
 
+	int mTTD;	// Ticks until entity self-destructs
 	int mSpeedPerTick;
 	bool mSkipFrame;		// True if we're not going to update this frame.
 
@@ -54,6 +55,7 @@ public:
 
 	void setColor( Uint8 r, Uint8 g, Uint8 b );
 	void setSpeedPerTick( int speed );
+	void setTTD( int ttd );
 
 	void teleport( int x, int y );
 

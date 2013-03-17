@@ -18,6 +18,8 @@ Entity::Entity( Game* parent, int x, int y,
 	mColor(),
 	mParent(parent),
 	mProperties(),
+	mSpeedPerTick(1),
+	mTTD(-1),
 	mSkipFrame( false )
 {
 	mRect.x = x;
@@ -30,7 +32,7 @@ Entity::Entity( Game* parent, int x, int y,
 	mColor.g = 255;
 	mColor.b = 255;
 
-	mSpeedPerTick = 1; // 60 px/s (at 60Hz)
+	//mSpeedPerTick = 1; // 60 px/s (at 60Hz)
 }
 
 void Entity::render( SDL_Surface* screen ) const
@@ -52,7 +54,7 @@ void Entity::render( SDL_Surface* screen ) const
 
 void Entity::executeMisc()
 {
-
+	
 }
 
 SDL_Color Entity::getColor() const
@@ -114,6 +116,11 @@ void Entity::setSpeedPerTick( int speed )
 	mSpeedPerTick = speed;
 }
 
+void Entity::setTTD(int ttd)
+{
+	mTTD = ttd;
+}
+
 void Entity::teleport(int x, int y)
 {
 	mRect.x = x;
@@ -122,6 +129,15 @@ void Entity::teleport(int x, int y)
 
 void Entity::update() 
 {
+	if(mTTD == 0) 
+	{
+		destroy();
+	}
+	else if(mTTD > 0)
+	{
+		--mTTD;
+	}
+
 	if( hasProperty( EntityProperty::SLOWED_HALF )  )
 	{
 		mSkipFrame = !mSkipFrame;

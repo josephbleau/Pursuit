@@ -10,6 +10,8 @@ EntityTrap::EntityTrap( Game* game, int x, int y, int w, int h, TrapType type, b
 	mType( type ),
 	mFriendly ( friendly )
 {
+	setTTD(150);
+
 	/* Based on the trap type, we're going to give it
 	   different behaviors. */
 	EntityBehavior* behavior = NULL;

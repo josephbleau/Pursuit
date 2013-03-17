@@ -78,8 +78,6 @@ void AnimationPlayer::animUpdate()
 		const Uint32 curTick = SDL_GetTicks();
 		const int numFrames = mAnimation->getNumFrames();
 
-		std::cout << mCurFrame << std::endl;
-
 		if( curTick - mLastTick >= mTicksPerFrame )
 		{
 			mLastTick = SDL_GetTicks();
