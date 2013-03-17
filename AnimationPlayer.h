@@ -24,6 +24,7 @@ private:
 	bool mIsEnabled;
 
 public:
+	AnimationPlayer();
 	AnimationPlayer( std::shared_ptr<ResourceManager> resourceMgr );
 	AnimationPlayer( std::shared_ptr<ResourceManager> resourceMgr, 
 		             std::string animationName );

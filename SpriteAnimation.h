@@ -12,8 +12,6 @@
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
 
-class ResourceManager;
-
 class SpriteAnimation
 {
 private:
@@ -26,19 +24,20 @@ private:
 
 	bool mIsLooping;	
 
-	std::shared_ptr<SDL_Surface> mResource;	// The sprite
+	SDL_Surface* mResource;
 
 public:
 	/* Note: ctor can throw an ImageLoadException */
+	SpriteAnimation(); // Default ctor for std::map
 	SpriteAnimation( std::string filename, int framewidth, int frameheight );
+	~SpriteAnimation();
 
 	SDL_Rect getFrameRect( int frame ) const;
 	int getNumFrames() const;
-	const std::shared_ptr<SDL_Surface>& getTexture() const;
 
 	bool isLooping() const;
 	Uint32 getTicksPerFrame() const;
-
+	const SDL_Surface* getTexture() const;
 	
 	
 };

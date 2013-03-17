@@ -5,6 +5,17 @@
 #include "ResourceManager.h"
 #include "SpriteAnimation.h"
 
+AnimationPlayer::AnimationPlayer() :
+	mResourceMgr( NULL ),
+	mCurFrame( 0 ),
+	mLastTick( 0 ),
+	mTicksPerFrame ( 0 ),
+	mIsLooping( false ),
+	mIsPaused( true ),
+	mIsEnabled( false ) 
+{
+}
+
 AnimationPlayer::AnimationPlayer( std::shared_ptr<ResourceManager> resourceMgr ) :
 	mResourceMgr( resourceMgr ),
 	mCurFrame( 0 ),
@@ -26,7 +37,7 @@ AnimationPlayer::AnimationPlayer( std::shared_ptr<ResourceManager> resourceMgr,
 	mIsPaused( false ),
 	mIsEnabled( true )
 {
-	mAnimation = resourceMgr->getSpriteAnimation( animationName );
+	mAnimation = resourceMgr->getAnimationResource( animationName );
 }
 
 void AnimationPlayer::disableAnimation()
@@ -52,11 +63,11 @@ void AnimationPlayer::renderAt( SDL_Surface* screen, int x, int y ) const
 		SDL_Rect frameRect = mAnimation->getFrameRect( mCurFrame );
 		SDL_Rect renderRect = { x, y, frameRect.w, frameRect.h };
 
-		std::cout << "frame rect: " << frameRect.x << ", " << frameRect.y << ", " << frameRect.w << ", " << frameRect.h << std::endl;
+		const SDL_Surface* texture = mAnimation->getTexture(); 
 
-		const std::shared_ptr<SDL_Surface>& texture = mAnimation->getTexture(); 
-
-		SDL_BlitSurface( texture.get(), &frameRect, screen, &renderRect );
+		/* Note: BlitSurface does not alter the source surface, cast to constant
+		         here is safe. */
+		SDL_BlitSurface( const_cast<SDL_Surface*>(texture), &frameRect, screen, &renderRect );
 	}
 }
 
@@ -92,11 +103,10 @@ void AnimationPlayer::animUpdate()
 
 bool AnimationPlayer::setAnimation( std::string animationName )
 {
-	mAnimation = mResourceMgr->getSpriteAnimation( animationName );
+	mAnimation = mResourceMgr->getAnimationResource( animationName );
 	
 	if( mAnimation != NULL )
 	{
-		std::cout << "?";
 		mIsPaused = false;
 		mIsEnabled = true;
 		return true;

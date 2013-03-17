@@ -20,5 +20,4 @@ EnemyEntity::EnemyEntity( Game* parent, int x, int y, int w, int h ) :
 	giveProperty( EntityProperty::DESTROY_ON_DEATH );	
 
 	setAnimation("enemy");
-	enableAnimation();
 }

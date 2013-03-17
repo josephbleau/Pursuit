@@ -10,12 +10,13 @@
 
 class ResourceManager 
 {
-	std::map<std::string, std::shared_ptr<SpriteAnimation> > mSpriteAnimations;
+	std::map< std::string, std::shared_ptr<SpriteAnimation> > mAnimations;
 
 public:
 	ResourceManager();
+	ResourceManager( std::string atlusFileName );
 
-	std::shared_ptr<SpriteAnimation> getSpriteAnimation( std::string name );
+	std::shared_ptr<SpriteAnimation> getAnimationResource( std::string resourceName );
 };
 
 #endif

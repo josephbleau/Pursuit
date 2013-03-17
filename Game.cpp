@@ -10,12 +10,13 @@
 #include "PlayerEntity.h"
 #include "ResourceManager.h"
 #include "ReticuleEntity.h"
+#include "SpriteAnimation.h"
 #include "UIElement.h"
 #include "UIHealthBar.h"
 
 Game::Game() :
 	mScreen( NULL ),
-	mResourceManager( new ResourceManager() ),
+	mResourceMgr( new ResourceManager() ),
 	mEntities(),
 	mUIElements(),
 	mPlayerEntity( NULL )
@@ -133,7 +134,7 @@ const std::vector<std::shared_ptr<Entity>> Game::getEntities()
 
 std::shared_ptr<ResourceManager> Game::getResourceManager()
 {
-	return mResourceManager;
+	return mResourceMgr;
 }
 
 void Game::giveEntity( Entity* entity )
@@ -192,7 +193,7 @@ void Game::initBasicEntities()
 
 	/* TODO: Eventually push these into a level loading mechanism. */
 	/* Setup the player entity. */
-	mPlayerEntity = std::shared_ptr<Entity>( new PlayerEntity( this, 20, 20, 10, 10 ) );
+	mPlayerEntity = std::shared_ptr<Entity>( new PlayerEntity( this, 200, 200, 32, 32) );
 	mPlayerEntity->giveProperty( EntityProperty::PLAYERCONTROLLED );
 	mPlayerEntity->giveProperty( EntityProperty::COLLIDABLE );
 	mPlayerEntity->giveBehavior( new EBStats() );
@@ -201,9 +202,9 @@ void Game::initBasicEntities()
 	
 	/* Setup a test enemy. */
 	mEntities.push_back( std::make_shared<EnemyEntity>( EnemyEntity( this, 100, 100, 32, 32 ) ) );
-	/*mEntities.push_back( std::make_shared<EnemyEntity>( EnemyEntity( this, 400, 0, 32, 32 ) ) );
+	mEntities.push_back( std::make_shared<EnemyEntity>( EnemyEntity( this, 400, 0, 32, 32 ) ) );
 	mEntities.push_back( std::make_shared<EnemyEntity>( EnemyEntity( this, 0, 400, 32, 32 ) ) );
-	mEntities.push_back( std::make_shared<EnemyEntity>( EnemyEntity( this, 400, 400, 32, 32 ) ) );*/
+	mEntities.push_back( std::make_shared<EnemyEntity>( EnemyEntity( this, 400, 400, 32, 32 ) ) );
 }
 
 void Game::updateEntities()

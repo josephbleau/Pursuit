@@ -4,21 +4,19 @@
 
 #include "SDL/SDL_image.h"
 
-ResourceManager::ResourceManager() :
-	mSpriteAnimations()
+ResourceManager::ResourceManager()
 {
-	/* Load from resource manifest. */
-
-	/* NOTE THIS IS JUST TEMPORARY FOR TESTING */
-	mSpriteAnimations["enemy"] = std::shared_ptr<SpriteAnimation>( 
-		new SpriteAnimation("enemy_anim.png", 32, 32)
-	);
+	mAnimations["enemy"] = std::shared_ptr<SpriteAnimation>(new SpriteAnimation("enemy_anim.png", 32, 32));
 }
 
-std::shared_ptr<SpriteAnimation> ResourceManager::getSpriteAnimation( std::string name )
+ResourceManager::ResourceManager(std::string atlusFileName )
 {
-	if( mSpriteAnimations.find( name ) == mSpriteAnimations.end() )
-		return NULL;
+}
 
-	return mSpriteAnimations[name];
+std::shared_ptr<SpriteAnimation> ResourceManager::getAnimationResource( std::string resourceName ) 
+{
+	if( mAnimations.find(resourceName) != mAnimations.end() )
+		return mAnimations[resourceName];
+
+	return NULL;
 }

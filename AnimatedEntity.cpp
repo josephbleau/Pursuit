@@ -1,30 +1,29 @@
 #include <string>
 
 #include "AnimatedEntity.h"
-#include "AnimationPlayer.h"
 #include "EntityProperties.h"
 #include "Game.h"
+#include "ResourceManager.h"
 
 
 AnimatedEntity::AnimatedEntity( Game* game, int x, int y, int w, int h ) :
 	Entity( game, x, y, w, h ),
-	AnimationPlayer( game->getResourceManager() )
-{
-
-}
+	mAnimationPlayer( new AnimationPlayer(game->getResourceManager()) )
+{}
 
 void AnimatedEntity::executeMisc()
 {
-	animUpdate();
+	if( mAnimationPlayer )
+		mAnimationPlayer->animUpdate();
 }
 
 void AnimatedEntity::render( SDL_Surface* screen ) const
 {
-	if( !hasProperty( EntityProperty::HIDDEN ) )
+	if(!hasProperty( EntityProperty::HIDDEN ) )
 	{
-		if( isAnimationEnabled() == true )
+		if( mAnimationPlayer &&  mAnimationPlayer->isAnimationEnabled() == true )
 		{
-			renderAt( screen, getRect().x, getRect().y );
+			mAnimationPlayer->renderAt( screen, getRect().x, getRect().y );
 		}
 		else {
 	
@@ -41,4 +40,10 @@ void AnimatedEntity::render( SDL_Surface* screen ) const
 			); 	
 		}
 	}
+}
+
+void AnimatedEntity::setAnimation( std::string animationName ) 
+{
+	if(mAnimationPlayer)
+		mAnimationPlayer->setAnimation( animationName );
 }

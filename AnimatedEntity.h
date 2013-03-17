@@ -1,21 +1,30 @@
 #ifndef ANIMATEDENTITY_H
 #define ANIMATEDENTITY_H
 
-#include "AnimationPlayer.h"
+#include <map>
+#include <string>
+
 #include "Entity.h"
 
+#include "AnimationPlayer.h"
+#include "ResourceManager.h"
+
+class AnimationPlayer;
 class SpriteAnimation;
 
-class AnimatedEntity : public Entity, public AnimationPlayer
+class AnimatedEntity : public Entity
 {
 private:
-	void executeMisc(); //override, final
+	std::shared_ptr<AnimationPlayer> mAnimationPlayer;
 
+	void executeMisc(); //override, final
 public:
 	AnimatedEntity( Game* game, int x, int y, int w, int h );
 	virtual ~AnimatedEntity() = 0 {};
 
 	virtual void render( SDL_Surface* screen) const;
+
+	void setAnimation( std::string animationName );
 };
 
 #endif

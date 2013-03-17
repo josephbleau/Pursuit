@@ -5,6 +5,7 @@
 #include "ImageLoadException.h"
 #include "ResourceManager.h"
 
+
 SpriteAnimation::SpriteAnimation( std::string filename, int framewidth, int frameheight ) :
 	mNumRows( 0 ),
 	mNumCols( 0 ),
@@ -32,12 +33,17 @@ SpriteAnimation::SpriteAnimation( std::string filename, int framewidth, int fram
 		throw ImageLoadException( filename );
 	}
 
-	mResource = std::shared_ptr<SDL_Surface>( image );
+	mResource = image;
 
 	const int imageWidth = mResource->w;
 	const int imageHeight = mResource->h;
 	mNumRows = imageWidth / framewidth;
 	mNumCols = imageHeight / frameheight;
+}
+
+SpriteAnimation::~SpriteAnimation()
+{
+	SDL_FreeSurface( mResource) ;
 }
 
 SDL_Rect SpriteAnimation::getFrameRect( int frame ) const
@@ -57,13 +63,12 @@ int SpriteAnimation::getNumFrames() const
 	return mNumRows * mNumCols;  
 }
 
-const std::shared_ptr<SDL_Surface>& SpriteAnimation::getTexture() const
-{
-	return mResource;
-}
-
-
 bool SpriteAnimation::isLooping() const
 {
 	return mIsLooping;
+}
+
+const SDL_Surface* SpriteAnimation::getTexture() const 
+{
+	return mResource;
 }
