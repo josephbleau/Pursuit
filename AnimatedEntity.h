@@ -17,7 +17,8 @@ class AnimatedEntity : public Entity
 private:
 	std::shared_ptr<AnimationPlayer> mAnimationPlayer;
 
-	void executeMisc(); //override, final
+	virtual void executeMisc() = 0; //override
+
 public:
 	AnimatedEntity( Game* game, int x, int y, int w, int h );
 	virtual ~AnimatedEntity() = 0 {};
@@ -25,6 +26,7 @@ public:
 	virtual void render( SDL_Surface* screen) const;
 
 	void setAnimation( std::string animationName );
+	void setAnimationSpeed( Uint32 ticksPerFrame );
 };
 
 #endif

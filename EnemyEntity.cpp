@@ -19,5 +19,10 @@ EnemyEntity::EnemyEntity( Game* parent, int x, int y, int w, int h ) :
 	giveProperty( EntityProperty::COLLIDABLE );
 	giveProperty( EntityProperty::DESTROY_ON_DEATH );	
 
+	setAnimationSpeed(250);	
 	setAnimation("enemy");
+}
+
+void EnemyEntity::executeMisc()
+{
 }

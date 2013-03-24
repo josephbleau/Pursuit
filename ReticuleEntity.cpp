@@ -3,7 +3,10 @@
 #include "SDL/SDL.h"
 #include <iostream>
 
+#include "EBStats.h"
+
 #include "EntityTrap.h"
+#include "ProjectileEntity.h"
 #include "PlayerEntity.h"
 #include "Game.h"
 
@@ -21,8 +24,8 @@ void ReticuleEntity::executeMisc()
 	/* Seriously, what the fuck? SDL? Really? What the hell is this.
 	   This is how I have to poll the mouse state if I don't want to use
 	   SDL_Event. Now that's a paddlin'. */
-	int clicking = SDL_GetMouseState( &mouseX, &mouseY ) & SDL_BUTTON_LMASK;
-
+	int clicking_right = SDL_GetMouseState( &mouseX, &mouseY ) & SDL_BUTTON_RMASK;
+	int clicking_left = SDL_GetMouseState( & mouseX, &mouseY ) & SDL_BUTTON_LMASK;
 	teleport( mouseX, mouseY );
 	
 	/* If the mouse is clicked, we need to check our PlayerEntity
@@ -35,7 +38,7 @@ void ReticuleEntity::executeMisc()
 	PlayerEntity* playerEntity = dynamic_cast<PlayerEntity*>( getGame()->getPlayerEntity().get() );  
 	
 	
-	if( clicking )	// SDL Magic I guess... checks if left button is down
+	if( clicking_right )	
 	{
 		if( playerEntity->isTrapReady() )
 		{
@@ -45,6 +48,25 @@ void ReticuleEntity::executeMisc()
 				trap->teleport( mouseX, mouseY );
 				getGame()->giveEntity( trap );
 			}
+		}
+	}
+
+	if( clicking_right )
+	{
+		/* Get stat block */
+		EBStats* stats = playerEntity->getBehaviorByClass<EBStats>();
+		if(stats->getEnergy()) {
+			ProjectileEntity* projectile = new ProjectileEntity( 
+				getGame(),
+				mouseX,
+				mouseY,
+				5,
+				5,
+				1,
+				1
+			);
+
+			getGame()->giveEntity( projectile );
 		}
 	}
 }

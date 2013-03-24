@@ -6,7 +6,7 @@
 
 ResourceManager::ResourceManager()
 {
-	mAnimations["enemy"] = std::shared_ptr<SpriteAnimation>(new SpriteAnimation("enemy_anim.png", 32, 32));
+	mAnimations["enemy"] = std::shared_ptr<SpriteAnimation>(new SpriteAnimation("resources\\enemy_anim.png", 32, 32));
 }
 
 ResourceManager::ResourceManager(std::string atlusFileName )

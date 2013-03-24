@@ -12,6 +12,8 @@ private:
 	int mTicksBetweenTrap; // Number of ticks that must pass before we can use another trap
 	int mTrapTimer;	// A timer that is decremented once per tick until zero is reached.
 
+
+
 	std::vector< std::unique_ptr<EntityTrap> > mTraps;
 
 public:

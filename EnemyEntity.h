@@ -12,6 +12,7 @@ class Game;
 class EnemyEntity : public AnimatedEntity 
 {
 public:
+	virtual void executeMisc();
 	EnemyEntity( Game* parent, int x, int y, int w, int h );
 };
 

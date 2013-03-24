@@ -37,6 +37,7 @@ public:
 	void renderAt( SDL_Surface* screen, int x, int y ) const;
 
 	bool setAnimation( std::string animationName );
+	void setAnimationSpeed( Uint32 ticksPerFrame );
 };
 
 #endif

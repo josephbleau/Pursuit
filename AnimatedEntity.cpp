@@ -47,3 +47,9 @@ void AnimatedEntity::setAnimation( std::string animationName )
 	if(mAnimationPlayer)
 		mAnimationPlayer->setAnimation( animationName );
 }
+
+void AnimatedEntity::setAnimationSpeed( Uint32 ticksPerFrame )
+{
+	if(mAnimationPlayer)
+		mAnimationPlayer->setAnimationSpeed( ticksPerFrame );
+}

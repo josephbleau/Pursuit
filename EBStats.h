@@ -14,6 +14,7 @@
 #include <memory>
 
 #include "EntityBehavior.h"
+#include "Spell.h"
 enum EntityProperty;
 
 class EBStats : public EntityBehavior
@@ -22,15 +23,22 @@ private:
 	bool mAlive;
 	int mHealth;
 	int mMaxHealth;
+	int mEnergy;
+	int mMaxEnergy;
 	
+	std::vector<Spell> mPassiveSpells;
+
 public:
 	EBStats();
 	virtual ~EBStats();
 
 	bool damage( int damage );
+	bool depleteEnergy( int energy );
 
 	int getHealth() const;
 	int getMaxHealth() const;
+	int getEnergy() const;
+	int getMaxEnergy() const;
 
 	std::string getMyType() const; // Override
 

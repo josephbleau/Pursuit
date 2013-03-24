@@ -16,6 +16,21 @@ EBStats::~EBStats()
 {
 }
 
+bool EBStats::depleteEnergy( int energy )
+{
+	if( mEnergy - energy <= 0 )
+	{
+		mEnergy = 0;
+		return false;
+	}
+	else
+	{
+		mEnergy = mEnergy - energy;
+	}
+
+	return true;
+}
+
 bool EBStats::damage( int damage )
 {
 	if( mHealth - damage <= 0 )
@@ -39,6 +54,16 @@ int EBStats::getHealth() const
 int EBStats::getMaxHealth() const
 {
 	return mMaxHealth;
+}
+
+int EBStats::getEnergy() const
+{
+	return mEnergy;
+}
+
+int EBStats::getMaxEnergy() const 
+{
+	return mMaxEnergy;
 }
 
 std::string EBStats::getMyType() const

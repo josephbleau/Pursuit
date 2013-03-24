@@ -112,3 +112,8 @@ bool AnimationPlayer::setAnimation( std::string animationName )
 
 	return false;
 }
+
+void AnimationPlayer::setAnimationSpeed( Uint32 ticksPerFrame )
+{
+	mTicksPerFrame = ticksPerFrame;
+}
